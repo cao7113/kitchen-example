@@ -7,11 +7,12 @@ Vagrant.configure("2") do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "quantal64-vanilla"
+  config.vm.box = "chefnode"
+  config.vm.hostname = "kitchen-demo"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "https://dl.dropboxusercontent.com/u/165709740/boxes/quantal64-vanilla.box"
+  #config.vm.box_url = "https://dl.dropboxusercontent.com/u/165709740/boxes/quantal64-vanilla.box"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -20,7 +21,8 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network :private_network, ip: "33.33.33.66"
+  config.vm.network :private_network, ip: "192.168.6.101"
+  config.omnibus.chef_version = :latest
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
